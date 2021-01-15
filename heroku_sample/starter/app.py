@@ -1,19 +1,16 @@
 import os
 from flask import Flask, jsonify
 from models import setup_db
-from config import Config 
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
 
 
 app = Flask(__name__)
-app.config.from_object(Config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-from app.models import actor, movie
-from app.routes import index, actors, movies
+from models import Actor, Movie , setup_db
 
 
 @app.errorhandler(401)
