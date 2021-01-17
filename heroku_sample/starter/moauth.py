@@ -4,6 +4,7 @@ import json
 from flask import request
 from jose import jwt
 from functools import wraps
+import os
 
 AUTH0_DOMAIN = os.environ['AUTH0_DOMAIN']
 ALGORITHMS = ['RS256']
@@ -64,7 +65,7 @@ def get_token():
     token = part[1]
     return token
 
-def check_permissions(permission,payload):
+def permissions(permission,payload):
   if "permissions" not in payload:
      raise AuthError({
        "code":"invalid"
@@ -73,9 +74,9 @@ def check_permissions(permission,payload):
     },400)
   if permission not in payload["permissons"]:
     raise AuthError({
-       "code":"unauth"
+       "code":"unauthorized"
        "description":"not found"
-  },403)
+  },401)
 
 def jwt(token):
   jsonf = urlopen(f'{AUTH0_DOMAIN}.well-known/jwks.json')
