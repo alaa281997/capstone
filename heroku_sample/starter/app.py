@@ -197,7 +197,11 @@ def del_movies(id):
     })
     except Exception:
         db.session.rollback()
-        abort(500)  
+        abort(500)
+
+@app.route('/login')
+def login():
+    return render_template('log.html')
    
 
 @app.errorhandler(401)
