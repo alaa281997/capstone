@@ -15,13 +15,8 @@ from models import Actor, Movie , setup_db
 
 @app.route('/')
 def index():
-    """ 
-    get requests
-    """
-    return jsonify({
-       'message': 'Capstone',
-        'success': True
-    }))
+   return render_template('log.html')
+
 
 @app.route('/actors')
 @requires_models('get:actors')
@@ -198,10 +193,6 @@ def del_movies(id):
     except Exception:
         db.session.rollback()
         abort(500)
-
-@app.route('/login')
-def login():
-    return render_template('log.html')
    
 
 @app.errorhandler(401)
