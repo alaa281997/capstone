@@ -1,7 +1,7 @@
 # Casting Agency
 ## About 
  Capstone project for Udacity's Fullstack Nanodegree program. Summary : creating movies and managing and assigning actors.
- Herouku: https://capalaa.herokuapp.com/
+ Herouku: https://capsalaa.herokuapp.com/
 
  ## Getting started
  ### Key Dependencies
